@@ -48,6 +48,17 @@ void in_order(node * root) {
 	}
 }
 
+int tree_height(node * root) {
+	if (root == NULL)
+		return -1;
+	int left_height = tree_height(root->left);
+	int right_height = tree_height(root->right);
+	
+	if (left_height > right_height)
+		return 1 + left_height;
+	return 1 + right_height;
+}
+
 int num_of_nodes(node * root) {
 	if (root == NULL)
 		return 0;
