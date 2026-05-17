@@ -48,6 +48,12 @@ void in_order(node * root) {
 	}
 }
 
+int num_of_nodes(node * root) {
+	if (root == NULL)
+		return 0;
+	return 1 + num_of_nodes(root->left) + num_of_nodes(root->right);
+}
+
 bool is_valid_BST(node * node, int low, int high) {
 	if(node == NULL)
 		return true;
