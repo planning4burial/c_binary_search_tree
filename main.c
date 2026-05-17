@@ -8,11 +8,13 @@ int main() {
 	root = add_node(root, 5);
 	root = add_node(root, 11);
 	root = add_node(root, 15);
+	root = add_node(root, 17);
 	
 	in_order(root);
 	printf("\n");
 	printf("%d\n", is_search_tree(root));
 	printf("%d\n", num_of_nodes(root));
+	printf("%d\n", tree_height(root));
 	
 	return 0;
 }
