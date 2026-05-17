@@ -12,6 +12,7 @@ int main() {
 	in_order(root);
 	printf("\n");
 	printf("%d\n", is_search_tree(root));
+	printf("%d\n", num_of_nodes(root));
 	
 	return 0;
 }
