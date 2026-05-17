@@ -9,7 +9,9 @@ int main() {
 	root = add_node(root, 11);
 	root = add_node(root, 15);
 	
-	pre_order(root);
+	in_order(root);
+	printf("\n");
+	printf("%d\n", is_search_tree(root));
 	
 	return 0;
 }
