@@ -27,8 +27,48 @@ node * add_node(node * root, int x) {
 		return new_node(x);
 	if (x > root->key)
 		root->right = add_node(root->right, x);
-	else if (x < root->key)
+	if (x < root->key)
 		root->left = add_node(root->left, x);
+	return root;
+}
+
+node * find_min(node * root) {
+	if (root != NULL && root->left != NULL) {
+		return find_min(root->left);
+	}
+	return root;
+}
+
+node * delete_node(node * root, int x) {
+	if (root == NULL)
+		return root;
+	if (x > root->key)
+		root->right = delete_node(root->right, x);
+	else if (x < root->key)
+		root->left = delete_node(root->left, x);
+	else {
+			// if node is a leaf 
+			if (root->left == NULL && root->right == NULL) {
+				free(root);
+				return NULL;
+			}
+			// if node has only one child
+			else if (root->left == NULL || root->right == NULL) {
+				node * temp;
+				if (root->left == NULL)
+					temp = root->right;
+				else
+					temp = root->left;
+				free(root);
+				return temp;
+			}
+			// if node has two childs
+			else {
+				node * temp = find_min(root->right);
+				root->key = temp->key;
+				root->right = delete_node(root->right, temp->key);
+			}
+	}
 	return root;
 }
 
