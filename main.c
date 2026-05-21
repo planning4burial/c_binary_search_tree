@@ -2,24 +2,31 @@
 
 int main() {
 	node * root = NULL;
-	root = add_node(root, 13);
-	root = add_node(root, 10);
-	root = add_node(root, 1);
-	root = add_node(root, 5);
-	root = add_node(root, 11);
-	root = add_node(root, 15);
-	root = add_node(root, 17);
-	root = add_node(root, 14);
+	
+	int to_be_added[15] = {8, 4, 12, 2, 6, 10, 14, 1, 3, 5, 7, 9, 11, 13, 15};
+	
+	for (int i = 0; i < 15; ++i) {
+		root = add_node(root, to_be_added[i]);
+	}
+	
+	/*
+							 8
+            /     \
+          4         12
+         / \       /  \
+        2   6     10   14
+       /\   /\    /\   /\
+      1  3 5  7  9 11 13 15
+	
+	*/
 	
 	in_order(root);
 	printf("\n");
 
-	root = delete_node(root, 13);
+	root = delete_node(root, 12);
 	
 	in_order(root);
 	printf("\n");
-	
-	//printf("%d", (find_min(root)->key));
 	
 	return 0;
 }
