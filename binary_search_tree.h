@@ -118,4 +118,14 @@ bool is_search_tree(node * root) {
 	return is_valid_BST(root, INT_MIN, INT_MAX);
 }
 
+bool is_strictly_binary(node * root) {
+	if (root == NULL)
+		return true;
+	else {
+		if ((root->left != NULL && root->right != NULL) || (root->left == NULL && root->right == NULL))
+			return true && is_strictly_binary(root->left) && is_strictly_binary(root->right);
+		return false;
+	}
+}
+
 #endif
