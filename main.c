@@ -19,14 +19,18 @@ int main() {
       1  3 5  7  9 11 13 15
 	
 	*/
-	
+	printf("in order traversal: ");
 	in_order(root);
 	printf("\n");
 
-	root = delete_node(root, 12);
+	printf("is strictly binary?: ");
+	printf("%d\n", is_strictly_binary(root));
 	
-	in_order(root);
-	printf("\n");
+	printf("number of nodes: ");
+	printf("%d\n", num_of_nodes(root));
+	
+	printf("tree height: ");
+	printf("%d\n", tree_height(root));
 	
 	return 0;
 }
