@@ -9,16 +9,6 @@ int main() {
 		root = add_node(root, to_be_added[i]);
 	}
 	
-	/*
-							 8
-            /     \
-          4         12
-         / \       /  \
-        2   6     10   14
-       /\   /\    /\   /\
-      1  3 5  7  9 11 13 15
-	
-	*/
 	printf("in order traversal: ");
 	in_order(root);
 	printf("\n");
